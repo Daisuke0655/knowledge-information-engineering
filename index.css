@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+
+#webcam-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#skill {
+    grid-area: skill;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    line-height: 1;
+    border: 10px solid currentColor;
+    background: currentColor;
+    border-radius: 50%;
+    box-sizing: content-box;
+    width: 30px;
+    height: 30px;
+}
+#skill::before {
+    content: '\1F441'; /* 矢印の表示内容を設定 */
+    color: #fff;
+    font-size: 27px; /* フォントサイズを調整 */
+}
