@@ -25,10 +25,10 @@
     <script type="text/javascript">
         const URL = "./my_model/";
         let model, webcam, labelContainer, maxPredictions;
+        let max = 0
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
-            let max = 0
             // load the model and metadata
             // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
             // or files from your local hard drive
@@ -68,6 +68,7 @@
             }
             for(let i = 0;i < maxPredictions;i++){
                 if(max < classPrediction[i]){
+                    labelContainer.textContent = i;
                     max = i;
                 }
             }
