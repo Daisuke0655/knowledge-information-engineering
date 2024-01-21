@@ -24,7 +24,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
         const URL = "./my_model/";
-        let model, webcam, labelContainer, maxPredictions;
+        let model, webcam, maxPredictions;
+        var labelContainer = document.getElementById("label-container");
         let max = 0
         async function init() {
             const modelURL = URL + "model.json";
@@ -45,10 +46,6 @@
 
             // append elements to the DOM
             document.getElementById("webcam-container").appendChild(webcam.canvas);
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
-            }
         }
 
         async function loop() {
@@ -68,7 +65,8 @@
             }
             for(let i = 0;i < maxPredictions;i++){
                 if(max < classPrediction[i]){
-                    labelContainer.textContent = i;
+                    var temp = document.getElementById("label-container");
+                    labelContainer.textContent = i
                     max = i;
                 }
             }
