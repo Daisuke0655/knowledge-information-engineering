@@ -9,9 +9,14 @@
     <body>
         <main>
             <div id="container">
-                <div>数字を画面にかざしてください</div>
+                <span class="text">数字を画面にかざしてください</span>
+                <br>
                 <div id="webcam-container"></div>
+                <span class="text">この数字は</span>
+                <br>
                 <div id="label-container"></div>
+                <br>
+                <span class="text">です</span>
             </div>
         </main>
     </body>
@@ -23,7 +28,7 @@
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
-
+            let max = 0
             // load the model and metadata
             // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
             // or files from your local hard drive
@@ -56,10 +61,15 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             const prediction = await model.predict(webcam.canvas);
+            let classPrediction = []
             for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
+                classPrediction[i] =
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+            for(let i = 0;i < maxPredictions;i++){
+                if(max < classPrediction[i]){
+                    max = i;
+                }
             }
         }
         init()
