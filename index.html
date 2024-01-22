@@ -16,7 +16,7 @@
                 <br>
                 <span class="text">この数字は</span>
                 <br>
-                <div id="label-container"></div>
+                <span id="label-container"></span>
                 <br>
                 <span class="text"id="left">です</span>
             </div>
@@ -77,12 +77,13 @@
         }
         async function toggleWebcam() {
             if(isWebcamRunning){
+                isWebcamRunning = false
                 webcam.stop();
             }else{
+                isWebcamRunning = true
                 webcam.play();
                 window.requestAnimationFrame(loop);
             }
-            isWebcamRunning = !isWebcamRunning
         }
         init()
     </script>
