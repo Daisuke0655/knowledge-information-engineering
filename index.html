@@ -12,7 +12,7 @@
                 <span class="text">数字を画面にかざしてください</span>
                 <br>
                 <div id="webcam-container"></div>
-                <button onclick="stopWebcam()">STOP</button>
+                <button onclick="toggleWebcam()">STOP</button>
                 <br>
                 <span class="text">この数字は</span>
                 <br>
@@ -28,6 +28,7 @@
         const URL = "./my_model/";
         let model, webcam, maxPredictions;
         var labelContainer = document.getElementById("label-container");
+        let isWebcamRunning = true;
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -50,9 +51,11 @@
         }
 
         async function loop() {
-            webcam.update(); // update the webcam frame
-            await predict();
-            window.requestAnimationFrame(loop);
+            if(isWebcamRunning){
+                webcam.update(); // update the webcam frame
+                await predict();
+                window.requestAnimationFrame(loop);
+            }
         }
 
         // run the webcam image through the image models
@@ -72,9 +75,14 @@
                 }
             }
         }
-        function stopWebcam() {
-            webcam.stop();
-            isWebcamRunning = false;
+        async function toggleWebcam() {
+            if(isWebcamRunning){
+                webcam.stop();
+            }else{
+                webcam.play();
+                window.requestAnimationFrame(loop);
+            }
+            isWebcamRunning = !isWebcamRunning
         }
         init()
     </script>
