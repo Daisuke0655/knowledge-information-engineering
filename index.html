@@ -79,14 +79,13 @@
             }
         }
         async function toggleWebcam() {
-            if(isWebcamRunning){
-                isWebcamRunning = false
-                webcam.stop();
-            }else{
-                isWebcamRunning = true
-                await webcam.setup(); 
-                await webcam.play();
-                window.requestAnimationFrame(loop);
+            if (isWebcamRunning) {
+              isWebcamRunning = false;
+              webcam.pause(); // Pause the webcam stream
+            } else {
+              isWebcamRunning = true;
+              webcam.play(); // Resume the webcam stream
+              window.requestAnimationFrame(loop);
             }
         }
         init()
