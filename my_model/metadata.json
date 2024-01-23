@@ -1,1 +1,1 @@
-{"tfjsVersion":"1.3.1","tmVersion":"2.4.7","packageVersion":"0.8.4-alpha2","packageName":"@teachablemachine/image","timeStamp":"2024-01-21T06:22:42.034Z","userMetadata":{},"modelName":"手書き数字学習モデル","labels":["0","1","2","3","4","5","6","7","8","9"],"imageSize":224}
+{"tfjsVersion":"1.3.1","tmVersion":"2.4.7","packageVersion":"0.8.4-alpha2","packageName":"@teachablemachine/image","timeStamp":"2024-01-23T16:30:05.653Z","userMetadata":{},"modelName":"webcam","labels":["0","1","2","3","4","5","6","7","8","9"],"imageSize":224}
