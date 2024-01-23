@@ -13,10 +13,9 @@
                 <br>
                 <div id="webcam-container"></div>
                 <div class="toggle_button">
-                    <input id="toggle" class="toggle_input" type='checkbox' >
+                    <input id="toggle" class="toggle_input" type='checkbox'onchange="toggleWebcam()">
                     <label for="toggle" class="toggle_label">
                 </div>
-                <button onclick="toggleWebcam()">STOP</button>
                 <br>
                 <span class="text">この数字は</span>
                 <br>
@@ -85,6 +84,7 @@
                 webcam.stop();
             }else{
                 isWebcamRunning = true
+                await webcam.setup(); 
                 await webcam.play();
                 window.requestAnimationFrame(loop);
             }
