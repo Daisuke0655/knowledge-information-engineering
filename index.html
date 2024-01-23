@@ -12,6 +12,10 @@
                 <span class="text">数字を画面にかざしてください</span>
                 <br>
                 <div id="webcam-container"></div>
+                <div class="toggle_button">
+                    <input id="toggle" class="toggle_input" type='checkbox' >
+                    <label for="toggle" class="toggle_label">
+                </div>
                 <button onclick="toggleWebcam()">STOP</button>
                 <br>
                 <span class="text">この数字は</span>
@@ -81,7 +85,7 @@
                 webcam.stop();
             }else{
                 isWebcamRunning = true
-                webcam.play();
+                await webcam.play();
                 window.requestAnimationFrame(loop);
             }
         }
