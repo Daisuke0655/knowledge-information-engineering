@@ -70,8 +70,9 @@
                 classPrediction[i] =
                     prediction[i].probability.toFixed(2);
             }
-            let max = 0
+            let max = 0.00;
             for(let i = 0;i < maxPredictions;i++){
+                console.log(classPrediction[i])
                 if(max < classPrediction[i]){
                     labelContainer.textContent = i
                     max = i;
