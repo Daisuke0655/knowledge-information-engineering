@@ -72,11 +72,11 @@
             }
             let max = 0.00;
             for(let i = 0;i < maxPredictions;i++){
-                console.log(i + classPrediction[i])
+                console.log(i + ' : ' + classPrediction[i])
                 if(max < classPrediction[i]){
-                    console.log(max)
-                    console.log(classPrediction)
+                    console.log('prev : ' + max)
                     max = i
+                    console.log('next : ' + max)
                     labelContainer.textContent = i
                 }
             }
