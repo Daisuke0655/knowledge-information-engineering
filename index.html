@@ -72,6 +72,7 @@
             }
             let max = 0
             for(let i = 0;i < maxPredictions;i++){
+                console.log(i + ' : ' + classPrediction[i] + '\n')
                 if(max < classPrediction[i]){
                     labelContainer.textContent = i
                     max = i;
