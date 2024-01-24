@@ -74,13 +74,10 @@
             for(let i = 0;i < maxPredictions;i++){
                 console.log(i + ' : ' + classPrediction[i])
                 if(max < classPrediction[i]){
-                    console.log('prev : ' + max)
-                    max = i
-                    console.log('next : ' + max)
+                    max = classPrediction[i]
                     labelContainer.textContent = i
                 }
             }
-            console.log(max)
         }
         async function toggleWebcam() {
             if (isWebcamRunning) {
